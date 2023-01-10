@@ -7,18 +7,14 @@
 # takes to get to 1 if you start from n and recurse as indicated above.
 
 def collatz(n):
-    steps = 0
-    while True:
         if n == 1:
-            return steps
+            return 0
         elif n % 2 == 0:
-            steps += 1
-            n /= 2
+            return 1 + collatz(n/2)
         elif n % 2 == 1:
-            steps += 1
-            n = 3 * n + 1
+            return 1 + collatz(3 * n + 1)
 
 
-number = 6
+number = 3
 result = collatz(number)
 print(f"It takes {result} step(s) to get from {number} to 1.")
