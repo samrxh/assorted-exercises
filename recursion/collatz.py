@@ -7,14 +7,19 @@
 # takes to get to 1 if you start from n and recurse as indicated above.
 
 def collatz(n):
-        if n == 1:
-            return 0
-        elif n % 2 == 0:
-            return 1 + collatz(n/2)
-        elif n % 2 == 1:
-            return 1 + collatz(3 * n + 1)
+    if n == 1:
+        return 0
+    elif n % 2 == 0:
+        return 1 + collatz(n / 2)
+    elif n % 2 == 1:
+        return 1 + collatz(3 * n + 1)
 
 
-number = 3
-result = collatz(number)
-print(f"It takes {result} step(s) to get from {number} to 1.")
+while True:
+    try:
+        number = int(input("Enter a number: "))
+        result = collatz(number)
+        print(f"It takes {result} step(s) to get from {number} to 1.")
+        break
+    except ValueError:
+        print("Please enter an integer.")
