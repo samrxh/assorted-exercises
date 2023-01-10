@@ -8,18 +8,17 @@
 
 def collatz(n):
     steps = 0
-    if n == 1:
-        return steps
-    if n % 2 == 0:
-        steps += 1
-        n /= 2
-        collatz(n)
-    if n % 2 == 1:
-        steps += 1
-        n = 3 * n + 1
-        collatz(n)
+    while True:
+        if n == 1:
+            return steps
+        elif n % 2 == 0:
+            steps += 1
+            n /= 2
+        elif n % 2 == 1:
+            steps += 1
+            n = 3 * n + 1
 
 
-number = 2
+number = 6
 result = collatz(number)
 print(f"It takes {result} step(s) to get from {number} to 1.")
